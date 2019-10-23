@@ -291,7 +291,7 @@ func updateProcesses(old map[string]int, processes []Process, maxProcesses int) 
 	)
 
 	for _, p := range processes {
-		if id, isset := old[p.PID]; isset {
+		if id, ok := old[p.PID]; ok {
 			if id > len(old) {
 				log.Errorf("ID is out of bounds. Old len: %v, ID: %v", len(old), id)
 				found = append(found, p.PID)
