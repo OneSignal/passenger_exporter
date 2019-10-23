@@ -251,6 +251,10 @@ func parseOutput(r io.Reader) (*Info, error) {
 }
 
 func parseFloat(val string) float64 {
+	if val == "" {
+		val = "0"
+	}
+
 	v, err := strconv.ParseFloat(val, 64)
 	if err != nil {
 		log.Errorf("failed to parse %s: %v", val, err)
