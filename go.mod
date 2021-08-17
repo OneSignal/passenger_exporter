@@ -1,4 +1,4 @@
-module github.com/jobscore/passenger_exporter
+module github.com/onesignal/passenger_exporter
 
 go 1.12
 
