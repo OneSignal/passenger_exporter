@@ -1,5 +1,7 @@
 # passenger_exporter_nginx
 
+[![CircleCI](https://circleci.com/gh/OneSignal/passenger_exporter/tree/master.svg?style=svg)](https://circleci.com/gh/OneSignal/passenger_exporter/tree/master)
+
 This is a Prometheus exporter for passenger with nginx integration.
 
 https://www.phusionpassenger.com/
