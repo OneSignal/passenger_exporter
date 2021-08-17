@@ -10,9 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Install dependencies"
-          command: "go mod download"
-      - run:
           name: "Run tests"
           command: "go test ."
 
@@ -30,3 +27,7 @@ workflows:
           dockerfile: "Dockerfile"
           requires:
             - "test"
+          filters:
+            branches:
+              only:
+                - main
