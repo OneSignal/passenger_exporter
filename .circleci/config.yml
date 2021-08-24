@@ -1,0 +1,33 @@
+version: 2.1
+
+orbs:
+  docker: circleci/docker@1.5.0
+
+jobs:
+  test:
+    docker:
+      - image: golang:1-stretch
+    steps:
+      - checkout
+      - run:
+          name: "Run tests"
+          command: "go test ."
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test
+
+      - docker/publish:
+          context: onesignal-global
+          image: "osig/passenger-exporter"
+          docker-username: DOCKER_LOGIN
+          tag: "$CIRCLE_SHA1"
+          dockerfile: "Dockerfile"
+          requires:
+            - "test"
+          filters:
+            branches:
+              only:
+                - main
